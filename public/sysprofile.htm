@@ -1,0 +1,18 @@
+<html><head>
+<!-- saved from url=(0014)about:internet -->
+<script language='JavaScript'><!--
+function postForm(){
+frmMain.action= 'https://scanner-api.crucial.com/scanner/webhook.aspx';
+frmMain.submit();}
+function timedRefresh(timeoutPeriod) {
+setTimeout("location.reload(true);",timeoutPeriod);
+}
+--></script></head>
+<body onload='javascipt:timedRefresh(6000);'>
+<form id='frmMain' name='frmMain' action='' method='POST'>
+<div align='center'><img src='https://content.crucial.com/content/dam/crucial/web-ui/scanner/scanner-loading-image.gif' class='boxborder'></div>
+<input type='hidden' name='ScanData' value=''><input type='hidden' name='ScanType' value='E'><input type='hidden' name='ScanStatus' value='E'>
+<input type='hidden' name='appName' value='CrucialScan.exe'>
+<input type='hidden' name='ComputerType' value='PC'>
+</form>
+</body></html>
