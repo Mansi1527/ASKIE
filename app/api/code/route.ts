@@ -1,12 +1,10 @@
-
-
 import { auth } from '@clerk/nextjs';
 import { NextResponse } from 'next/server';
 import OpenAI from 'openai';
 import { ChatCompletionMessageParam  } from 'openai/resources/index.mjs';
 const client=new OpenAI()
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY // This is also the default, can be omitted
+  apiKey: process.env.OPENAI_API_KEY 
 });
 
 const instructionMessage:ChatCompletionMessageParam={
@@ -28,7 +26,7 @@ export async function POST(req:Request) {
             return new NextResponse("openAi api key not configured",{status:500})
         }
         if(!messages){
-            return new NextResponse("Messagea are required",{status:400})
+            return new NextResponse("Message are required",{status:400})
         }
         const response=await openai.chat.completions.create({
             model:"gpt-3.5-turbo-1106",

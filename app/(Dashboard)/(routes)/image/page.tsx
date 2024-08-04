@@ -147,10 +147,8 @@ import * as z from "zod";
 import axios from "axios";
 import Image from "next/image";
 import { useState } from "react";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Download, ImageIcon } from "lucide-react";
+// import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
 import { Heading } from "@/components/heading";
@@ -161,17 +159,18 @@ import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Loader } from "@/components/Loader";
 import { Empty } from "@/components/ui/empty";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useProModal } from "@/hooks/use-pro-modal";
+// import { useProModal } from "@/hooks/use-pro-modal";
 
 import { amountOptions, formSchema, resolutionOptions } from "./constants";
+import { Download, ImageIcon } from "lucide-react";
 
 const PhotoPage = () => {
-  const proModal = useProModal();
-  const router = useRouter();
+  // const proModal = useProModal();//for modal handeling
+  const router = useRouter(); 
   const [photos, setPhotos] = useState<string[]>([]);
 
   const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+    // resolver: zodResolver(formSchema),
     defaultValues: {
       prompt: "",
       amount: "1",
@@ -192,12 +191,12 @@ const PhotoPage = () => {
       setPhotos(urls);
     } catch (error: any) {
       if (error?.response?.status === 403) {
-        proModal.onOpen();
+        // proModal.onOpen();
       } else {
-        toast.error("Something went wrong.");
+        // toast.error("Something went wrong.");
       }
     } finally {
-      router.refresh();
+      // router.refresh();
     }
   }
 

@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import  Link  from "next/link";
 import Image from "next/image";
 // import robot from "@/public/giphy.gif"
